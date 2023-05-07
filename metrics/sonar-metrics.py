@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 def generate_metrics():
-    base_url = "https://sonarcloud.io/api/measures/component_tree?component=fga-eps-mds_"  # noqa 501
+    base_url = "https://sonarcloud.io/api/measures/component_tree?component=IanFPFerreira_"  # noqa 501
     prefix = "fga-eps-mds"
     metrics = [
         "files",
@@ -27,7 +27,7 @@ def generate_metrics():
     repository_version = sys.argv[2]
     underlined_repo_name = repository_name[:16] + \
         repository_name[16:].replace('-', "_")
-    url = base_url + repository_name + f"&metricKeys={','.join(metrics)}"
+    url = f'{base_url}{repository_name}&metricKeys={",".join(metrics)}'
     with urllib.request.urlopen(url) as res:
         data = json.load(res)
         date = datetime.now()
