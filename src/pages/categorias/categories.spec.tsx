@@ -17,7 +17,7 @@ describe('Categories Page', () => {
       <BrowserRouter>
         <AuthProvider>
           <ChakraProvider resetCSS theme={theme}>
-            <QueryClientProvider client={queryClient}>
+            <QueryClientProvider client={queryClien}>
               <ProblemCategories />
             </QueryClientProvider>
           </ChakraProvider>
