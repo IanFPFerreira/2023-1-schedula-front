@@ -42,7 +42,20 @@ const mockedOnDeleteFunction = vi.fn((itemId: string) => itemId);
 //   }));
 // });
 
-describe('Issue item', () => {
+describe('IssueItem', () => {
+  it.todo('should render correctly', () => {
+    const { getByTestId } = render(
+      <IssueItem
+        issue={mockedIssue}
+        isDeleting={false}
+        onDelete={mockedOnDeleteFunction}
+      />
+    );
+
+    const issueItem = getByTestId('issue-item');
+    expect(issueItem).toBeInTheDocument();
+  });
+
   it.todo('should be able to delete a item', async () => {
     const { getByTestId } = render(
       <IssueItem
