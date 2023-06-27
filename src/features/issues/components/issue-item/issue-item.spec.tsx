@@ -1,8 +1,8 @@
-import { fireEvent, render, act } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { vi } from 'vitest';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { IssueItem } from '@/features/issues/components/issue-item';
 import { Issue } from '@/features/issues/types';
-import { QueryClient, QueryClientProvider  } from '@tanstack/react-query';
 
 const mockedIssue: Issue = {
   id: '1',
