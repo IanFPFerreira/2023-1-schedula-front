@@ -1,5 +1,6 @@
 import json
 import sys
+import requests
 import urllib.request
 from datetime import datetime
 
@@ -27,16 +28,27 @@ def generate_metrics():
     repository_version = sys.argv[2]
     underlined_repo_name = repository_name[:16] + \
         repository_name[16:].replace('-', "_")
-    url = f'{base_url}{repository_name}&metricKeys={",".join(metrics)}'
-    with urllib.request.urlopen(url) as res:
-        data = json.load(res)
-        date = datetime.now()
-        date_padrao_hilmer = f"{date.month}-{date.day}-{date.year}-{date.hour}-{date.minute}-{date.second}"  # noqa 501
+    url = requests.get(f'{base_url}{repository_name}&metricKeys={",".join(metrics)}&ps=500')
+    j = json.loads(url.text)
 
-        filename = f"{prefix}-{underlined_repo_name}-{date_padrao_hilmer}-{repository_version}.json"  # noqa 501
-        print(filename)
-        with open(filename, "w") as file:
-            json.dump(data, file)
+    date = datetime.now()
+    date_padrao_hilmer = f"{date.month}-{date.day}-{date.year}-{date.hour}-{date.minute}-{date.second}"  # noqa 501
+
+    filename = f"{prefix}-{underlined_repo_name}-{date_padrao_hilmer}-{repository_version}.json"  # noqa 501
+
+    # with open(filename, "w") as file:
+    #         json.dump(data, file)
+
+    with open(filename, 'w') as fp:
+        fp.write(json.dumps(j))
+        fp.close()
+
+    # with urllib.request.urlopen(url) as res:
+    #     data = json.load(res)
+    #     print(data)
+    #     print(filename)
+    #     with open(filename, "w") as file:
+    #         json.dump(data, file)
 
 
 if __name__ == "__main__":
