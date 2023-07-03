@@ -53,7 +53,3 @@ export interface PutUpdateTutorialResponse {
 export interface DeleteTutorialParams {
   tutorialId: string;
 }
-
-export interface DeleteTutorialsParams {
-  tutorialsIds: string[];
-}

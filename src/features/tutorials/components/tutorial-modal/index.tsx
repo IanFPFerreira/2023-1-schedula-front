@@ -6,7 +6,6 @@ import { Tutorial, TutorialPayload } from '../../type';
 import { usePostCreateTutorial } from '../../api/post-create-tutorial';
 import { usePutUpdateTutorial } from '../../api/put-update-tutorials';
 import { PostCreateTutorialParams } from '../../api/types';
-import { toast } from '@/utils/toast';
 
 interface TutorialModalProps extends Partial<ModalProps> {
   tutorial?: Tutorial;
@@ -43,11 +42,6 @@ export function TutorialModal({
           tutorialId: tutorial.id,
           data: payload,
         });
-      } else if (payload?.category_id.value === '') {
-        toast.error(
-          'Escolha uma categoria para poder cadastrar um novo tutorial',
-          'Campo categoria é obrigatório.'
-        );
       } else {
         createTutorial(payload);
       }
@@ -66,7 +60,6 @@ export function TutorialModal({
         defaultValues={tutorial}
         onSubmit={handleSubmit}
         isSubmitting={isCreatingTutorial || isUpdatingTutorial}
-        editTutorial={tutorial}
       />
     </Modal>
   );

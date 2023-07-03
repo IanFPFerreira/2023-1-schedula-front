@@ -3,21 +3,19 @@ import { useForm } from 'react-hook-form';
 import { useMemo, useState } from 'react';
 import { GrDocumentPdf } from 'react-icons/gr';
 import { ControlledSelect, Input } from '@/components/form-fields';
-import { TutorialPayload, File, Tutorial } from '../../type';
+import { TutorialPayload, File } from '../../type';
 import { useGetAllCategoryTutorial } from '@/features/categories-tutorial/api/get-all-categories-tutorial';
 
 interface TutorialFromProps {
   defaultValues?: TutorialPayload;
   onSubmit: (data: TutorialPayload) => void;
   isSubmitting: boolean;
-  editTutorial?: Tutorial;
 }
 
 export function TutorialForm({
   defaultValues,
   onSubmit,
   isSubmitting,
-  editTutorial,
 }: TutorialFromProps) {
   const isEditing = useMemo(() => Boolean(defaultValues), [defaultValues]);
   let nomeArquivo;
@@ -28,11 +26,6 @@ export function TutorialForm({
     formState: { errors },
   } = useForm({
     defaultValues: {
-      name: editTutorial?.name ?? '',
-      category_id: {
-        label: editTutorial?.category?.name ?? 'Escolha uma categoria',
-        value: editTutorial?.category?.id ?? '',
-      },
       ...defaultValues,
     },
   });
@@ -57,16 +50,7 @@ export function TutorialForm({
 
   if (fileName) {
     nomeArquivo = fileName.name;
-  } else {
-    nomeArquivo = editTutorial?.filename;
   }
-
-  const defaultTutorial = (category: CategoryTutorial | undefined) => {
-    return {
-      label: category?.name ?? '',
-      value: category?.id ?? '',
-    };
-  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
@@ -77,18 +61,16 @@ export function TutorialForm({
         errors={errors?.name}
       />
 
-      <div style={{ marginTop: '5px' }}>
-        <ControlledSelect
-          control={control}
-          name="category_id"
-          id="category_id"
-          options={categoryOptions}
-          isLoading={isLoadingCategories}
-          label="Categoria"
-          defaultValue={isEditing && defaultTutorial(editTutorial?.category)}
-          rules={{ required: 'Campo obrigatório' }}
-        />
-      </div>
+      <ControlledSelect
+        control={control}
+        name="category_id"
+        id="category_id"
+        options={categoryOptions}
+        isLoading={isLoadingCategories}
+        placeholder="Categoria"
+        label="Categoria"
+        rules={{ required: 'Campo obrigatório.' }}
+      />
 
       <div
         style={{
@@ -125,9 +107,8 @@ export function TutorialForm({
             type="file"
             // Call handleFile function when a file is selected before uploading
             {...register('file', { required: 'Campo obrigatório' })}
-            accept="application/pdf"
             placeholder="Escolha um arquivo e jogue"
-            errors={errors?.file}
+            errors={errors?.name}
             onChange={(event) => {
               const { files } = event.target;
               if (files) {
@@ -144,9 +125,7 @@ export function TutorialForm({
             }}
           />
           <span style={{ color: '#dbdada' }}>
-            {isEditing
-              ? 'Envie o arquivo novamente...'
-              : 'Arraste e solte um arquivo...'}
+            Arraste e solte um arquivo...
           </span>
         </span>
       </div>
@@ -175,7 +154,7 @@ export function TutorialForm({
 
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: 15 }}>
         <Button type="submit" size="lg" width="80%" isLoading={isSubmitting}>
-          {isEditing ? 'Salvar Tutorial' : 'Criar Tutorial'}
+          {isEditing ? 'Salvar' : 'Criar Tutorial'}
         </Button>
       </div>
     </form>

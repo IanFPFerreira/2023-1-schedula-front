@@ -24,5 +24,3 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Production build
 
 Deploy documentation can be found [here](https://fga-eps-mds.github.io/2022-2-Schedula-Doc/guias/deploy-front/)
-
-

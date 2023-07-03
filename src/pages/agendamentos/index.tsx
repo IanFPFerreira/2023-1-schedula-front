@@ -14,11 +14,6 @@ export function Agendamentos() {
   const [scheduleToEdit, setScheduleToEdit] = useState<Schedule | undefined>();
 
   const { data: schedules, isLoading, refetch } = useGetAllSchedules();
-  const filteredSchedules = schedules
-    ? schedules.filter(
-        (schedule) => schedule.status.toString().toUpperCase() !== 'RESOLVIDO'
-      )
-    : [];
 
   const { mutate: deleteSchedule, isLoading: isDeletingSchedule } =
     useDeleteSchedule();
@@ -44,16 +39,14 @@ export function Agendamentos() {
   }, [onClose]);
 
   const renderScheduleItem = useCallback(
-    (schedule: Schedule) => {
-      return (
-        <ScheduleItem
-          schedule={schedule}
-          onEdit={() => onEdit(schedule)}
-          onDelete={onDelete}
-          isDeleting={isDeletingSchedule}
-        />
-      );
-    },
+    (schedule: Schedule) => (
+      <ScheduleItem
+        schedule={schedule}
+        onEdit={onEdit}
+        onDelete={onDelete}
+        isDeleting={isDeletingSchedule}
+      />
+    ),
     [onEdit, onDelete, isDeletingSchedule]
   );
 
@@ -66,7 +59,7 @@ export function Agendamentos() {
       </PageHeader>
 
       <ListView<Schedule>
-        items={filteredSchedules}
+        items={schedules}
         render={renderScheduleItem}
         isLoading={isLoading}
       />

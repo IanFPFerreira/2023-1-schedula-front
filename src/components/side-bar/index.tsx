@@ -10,11 +10,9 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-import { AiOutlineBell } from 'react-icons/ai';
 import { useAuth } from '@/contexts/AuthContext';
 import { routes } from '@/constants/routes';
 import { SideBarItem } from '@/components/side-bar/sidebar-item';
-import { SideBarNotification } from '@/components/side-bar/sidebar-notification';
 
 export const SideBar = memo(() => {
   const { user, signOut } = useAuth();
@@ -43,15 +41,8 @@ export const SideBar = memo(() => {
           <SideBarItem key={route.label} {...route} />
         ))}
       </VStack>
-      <Box marginTop="auto">
-        <SideBarNotification
-          label="Notificações"
-          pathname="/notificacoes"
-          icon={AiOutlineBell}
-          allowedUsersPath={['ADMIN', 'BASIC', 'USER']}
-        />
-      </Box>
-      <Box shadow="xl" p=".5rem">
+
+      <Box marginTop="auto" shadow="xl" p=".5rem">
         <Divider marginBottom={2} />
         <Flex gap={2} justifyContent="space-between" alignItems="center">
           <FaRegUser size={25} />

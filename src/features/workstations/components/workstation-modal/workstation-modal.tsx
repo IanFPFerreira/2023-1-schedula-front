@@ -5,7 +5,6 @@ import { Modal } from '@/components/modal';
 import { usePostCreateWorkstation } from '@/features/workstations/api/post-create-workstation';
 import { usePutUpdateWorkstation } from '@/features/workstations/api/put-update-workstation';
 import { PostCreateWorkstationParams } from '@/features/workstations/api/types';
-import { toast } from '@/utils/toast';
 
 interface WorkstationModalProps extends Partial<ModalProps> {
   workstation?: Workstation;
@@ -62,11 +61,6 @@ export function WorkstationModal({
           workstationId: workstation.id,
           data: { ...payload },
         });
-      } else if (payload?.city_id === '') {
-        toast.error(
-          'Escolha uma cidade para cadastrar um novo posto de trabalho',
-          'Campo cidade é obrigatório.'
-        );
       } else {
         createWorkstation(payload);
       }

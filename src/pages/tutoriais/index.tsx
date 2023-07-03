@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useCallback, useState, useEffect, useMemo } from 'react';
 import {
   Button,
@@ -136,6 +136,7 @@ export function Tutoriais() {
             _placeholder={{ color: 'gray.400' }}
           />
         </InputGroup>
+
         <Select
           aria-label="Filtrar por categoria"
           placeholder={

@@ -9,6 +9,3 @@ export const SCHEDULES_ENDPOINT =
 
 export const TUTORIALS_ENDPOINT =
   import.meta.env.VITE_PUBLIC_GERENCIADOR_DE_TUTORIAIS_URL ?? '';
-
-export const ALERTS_ENDPOINT =
-  import.meta.env.VITE_PUBLIC_GESTOR_DE_ALERTAS_URL ?? '';
