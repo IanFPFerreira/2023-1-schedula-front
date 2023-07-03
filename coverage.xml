@@ -1,0 +1,37 @@
+<testExecutions version="1">
+  <file path="src\components\action-buttons\add-button\add-button.spec.tsx">
+    <testCase name="AddButton - has the correct aria-label" duration="99" />
+    <testCase name="AddButton - should be able to call AddButton onClick function" duration="110" />
+  </file>
+  <file path="src\components\action-buttons\delete-button\delete-button.spec.tsx">
+    <testCase name="DeleteButton - has the correct aria-label" duration="140" />
+    <testCase name="DeleteButton - should be able to call DeleteButton onClick function" duration="37" />
+  </file>
+  <file path="src\components\action-buttons\edit-button\edit-button.spec.tsx">
+    <testCase name="EditButton - has the correct aria-label" duration="69" />
+    <testCase name="EditButton - should be able to call EditButton onClick function" duration="101" />
+  </file>
+  <file path="src\components\action-buttons\refresh-button\refresh-button.spec.tsx">
+    <testCase name="RefreshButton - has the correct aria-label" duration="83" />
+  </file>
+  <file path="src\components\form-fields\datepicker\datepicker.spec.tsx">
+    <testCase name="Datepicker - should have the correct value" duration="560" />
+  </file>
+  <file path="src\components\forms\categoria-form\categoria-form.spec.tsx">
+    <testCase name="CategoriaForm - should have the correct data" duration="91" />
+    <testCase name="CategoriaForm - should be able to call CategoriaForm handleSubmit function" duration="60" />
+  </file>
+  <file path="src\components\list-item\list-item.spec.tsx">
+    <testCase name="ListItem - should display item data" duration="56" />
+  </file>
+  <file path="src\components\page-header\page-header.spec.tsx">
+    <testCase name="PageHeader - has the correct data" duration="190" />
+  </file>
+  <file path="src\components\side-bar\sidebar-item\sidebar-item.spec.tsx">
+    <testCase name="Sidebar-item - should display correct route name" duration="130" />
+    <testCase name="Sidebar-item - should go to a correct path" duration="113" />
+  </file>
+  <file path="src\components\side-bar\sidebar.spec.tsx">
+    <testCase name="Sidebar - should display all routes" duration="250" />
+  </file>
+</testExecutions>
