@@ -6,9 +6,9 @@ import { PageHeader } from '@/components/page-header';
 import { useGetAllIssues } from '@/features/issues/api/get-all-issues';
 import { Issue } from '@/features/issues/types';
 import { Permission } from '@/components/permission';
+
 import { ListView } from '@/components/list';
 import { IssueItem } from '@/features/issues/components/issue-item';
-import { useDeleteIssue } from '@/features/issues/api/delete-issue';
 
 export function Chamados() {
   const {
@@ -16,34 +16,20 @@ export function Chamados() {
     isLoading: isLoadingIssues,
     refetch,
   } = useGetAllIssues();
-  const { mutate: deleteIssue, isLoading: isRemovingIssue } = useDeleteIssue();
-
-  const onDelete = useCallback(
-    (issueId: string) => {
-      deleteIssue({ issueId });
-    },
-    [deleteIssue]
-  );
 
   const renderIssueItem = useCallback(
-    (issue: Issue) => (
-      <IssueItem
-        issue={issue}
-        onDelete={onDelete}
-        isDeleting={isRemovingIssue}
-      />
-    ),
-    [onDelete, isRemovingIssue]
+    (issue: Issue) => <IssueItem issue={issue} />,
+    []
   );
 
   return (
     <>
-      <PageHeader title="Atendimentos">
+      <PageHeader title="Chamados">
         <HStack spacing={2}>
           <RefreshButton refresh={refetch} />
           <Permission allowedRoles={['ADMIN', 'BASIC']}>
             <Link to="/chamados/registrar">
-              <Button variant="primary">Novo Atendimento</Button>
+              <Button variant="primary">Novo Chamado</Button>
             </Link>
           </Permission>
         </HStack>

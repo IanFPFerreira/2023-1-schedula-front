@@ -1,37 +1,116 @@
 <testExecutions version="1">
   <file path="src\components\action-buttons\add-button\add-button.spec.tsx">
-    <testCase name="AddButton - has the correct aria-label" duration="99" />
-    <testCase name="AddButton - should be able to call AddButton onClick function" duration="110" />
+    <testCase name="AddButton - has the correct aria-label" duration="79" />
+    <testCase name="AddButton - should be able to call AddButton onClick function" duration="92" />
   </file>
   <file path="src\components\action-buttons\delete-button\delete-button.spec.tsx">
-    <testCase name="DeleteButton - has the correct aria-label" duration="140" />
-    <testCase name="DeleteButton - should be able to call DeleteButton onClick function" duration="37" />
+    <testCase name="DeleteButton - has the correct aria-label" duration="170" />
+    <testCase name="DeleteButton - should be able to call DeleteButton onClick function" duration="61" />
   </file>
   <file path="src\components\action-buttons\edit-button\edit-button.spec.tsx">
-    <testCase name="EditButton - has the correct aria-label" duration="69" />
-    <testCase name="EditButton - should be able to call EditButton onClick function" duration="101" />
+    <testCase name="EditButton - has the correct aria-label" duration="79" />
+    <testCase name="EditButton - should be able to call EditButton onClick function" duration="91" />
   </file>
   <file path="src\components\action-buttons\refresh-button\refresh-button.spec.tsx">
-    <testCase name="RefreshButton - has the correct aria-label" duration="83" />
+    <testCase name="RefreshButton - has the correct aria-label" duration="89" />
   </file>
   <file path="src\components\form-fields\datepicker\datepicker.spec.tsx">
-    <testCase name="Datepicker - should have the correct value" duration="560" />
+    <testCase name="Datepicker - should have the correct value" duration="465" />
   </file>
   <file path="src\components\forms\categoria-form\categoria-form.spec.tsx">
-    <testCase name="CategoriaForm - should have the correct data" duration="91" />
-    <testCase name="CategoriaForm - should be able to call CategoriaForm handleSubmit function" duration="60" />
+    <testCase name="CategoriaForm - should have the correct data" duration="103" />
+    <testCase name="CategoriaForm - should be able to call CategoriaForm handleSubmit function" duration="58" />
   </file>
   <file path="src\components\list-item\list-item.spec.tsx">
-    <testCase name="ListItem - should display item data" duration="56" />
+    <testCase name="ListItem - should display item data" duration="53" />
   </file>
   <file path="src\components\page-header\page-header.spec.tsx">
-    <testCase name="PageHeader - has the correct data" duration="190" />
+    <testCase name="PageHeader - has the correct data" duration="180" />
+  </file>
+  <file path="src\components\side-bar-open\sidebar-open.spec.tsx">
+    <testCase name="Sidebar - should display all routes" duration="171" />
   </file>
   <file path="src\components\side-bar\sidebar-item\sidebar-item.spec.tsx">
-    <testCase name="Sidebar-item - should display correct route name" duration="130" />
-    <testCase name="Sidebar-item - should go to a correct path" duration="113" />
+    <testCase name="Sidebar-item - should display correct route name" duration="119" />
+    <testCase name="Sidebar-item - should go to a correct path" duration="107" />
   </file>
   <file path="src\components\side-bar\sidebar.spec.tsx">
-    <testCase name="Sidebar - should display all routes" duration="250" />
+    <testCase name="Sidebar - should display all routes" duration="194" />
+  </file>
+  <file path="src\features\categories-tutorial\components\category-tutorial-form\category-tutorial-form.spec.tsx">
+    <testCase name="CategoryTutorialForm - should have the correct data" duration="126" />
+    <testCase name="CategoryTutorialForm - should be able to update a category" duration="70" />
+    <testCase name="CategoryTutorialForm - should be able to create a categoryTutorial" duration="46" />
+  </file>
+  <file path="src\features\categories-tutorial\components\category-tutorial-item\category-tutorial-item.spec.tsx">
+    <testCase name="CategoryTutorialItem - should display the name of the category correctly" duration="56" />
+    <testCase name="CategoryTutorialItem - should be able to edit a category" duration="7" />
+    <testCase name="CategoryTutorialItem - should be able to delete a category" duration="4" />
+  </file>
+  <file path="src\features\cities\components\city-form\city-form.spec.tsx">
+    <testCase name="CityForm - should have the correct data" duration="137" />
+    <testCase name="CityForm - should be able to update a city" duration="66" />
+    <testCase name="CityForm - should be able to create a city" duration="49" />
+  </file>
+  <file path="src\features\cities\components\city-item\city-item.spec.tsx">
+    <testCase name="CityItem - should display the name of the city correctly" duration="59" />
+    <testCase name="CityItem - should be able to edit a city" duration="7" />
+    <testCase name="CityItem - should be able to delete a city" duration="6" />
+  </file>
+  <file path="src\features\issues\components\issue-item\issue-item.spec.tsx">
+    <testCase name="IssueItem - should display the name of the requester correctly" duration="191" />
+    <testCase name="IssueItem - should be able to delete a item" duration="42" />
+  </file>
+  <file path="src\features\tutorials\components\tutorial-item\tutorial-item.spec.tsx">
+    <testCase name="TutorialItem - should render tutorial name and category" duration="109" />
+    <testCase name="TutorialItem - should be called when the download button is clicked" duration="23" />
+  </file>
+  <file path="src\features\users\components\user-item\user-item.spec.tsx">
+    <testCase name="UserItem - should display the name of the user correctly" duration="98" />
+    <testCase name="UserItem - should be able to edit a user" duration="15" />
+    <testCase name="UserItem - should be able to delete a user" duration="0">
+      <skipped message="should be able to delete a user" />
+    </testCase>
+  </file>
+  <file path="src\pages\categorias\categories.spec.tsx">
+    <testCase name="Categories Page - should have a button to register a new problem category" duration="345" />
+  </file>
+  <file path="src\pages\chamados\chamados.spec.tsx">
+    <testCase name="Issues page - should display a heading" duration="193" />
+    <testCase name="Issues page - should display a list" duration="40" />
+    <testCase name="Issues page - should display a new issue button" duration="40" />
+    <testCase name="Issues page - should display a refresh button" duration="56" />
+  </file>
+  <file path="src\pages\cidades\cities.spec.tsx">
+    <testCase name="Cities Page - should have a button to register a new city" duration="333" />
+    <testCase name="Cities Page - should display a list of cities" duration="196" />
+  </file>
+  <file path="src\pages\login\login.spec.tsx">
+    <testCase name="Login page - should have a form" duration="456" />
+    <testCase name="Login page - should have wellcome text" duration="189" />
+    <testCase name="Login page - should display error message when any field is empty" duration="200" />
+  </file>
+  <file path="src\pages\tutoriais\tutoriais.spec.tsx">
+    <testCase name="Tutoriais Page - should have an input for searching tutorials" duration="457" />
+    <testCase name="Tutoriais Page - should display a list of tutorials" duration="153" />
+    <testCase name="Tutoriais Page - should have a select for filtering tutorials by category" duration="173" />
+  </file>
+  <file path="src\pages\usuarios\usuarios.spec.tsx">
+    <testCase name="Users page - should display a heading" duration="203" />
+    <testCase name="Users page - should display a list" duration="32" />
+    <testCase name="Users page - should display a new user button" duration="14" />
+    <testCase name="Users page - should display a refresh button" duration="65" />
+  </file>
+  <file path="src\pages\workstation\workstation.spec.tsx">
+    <testCase name="Workstations page - should display a heading" duration="277" />
+    <testCase name="Workstations page - should display a list" duration="64" />
+    <testCase name="Workstations page - should display a new workstation button" duration="25" />
+    <testCase name="Workstations page - should display a refresh button" duration="78" />
+    <testCase name="Workstations page - should display a checkbox" duration="95" />
+  </file>
+  <file path="src\utils\toast.spec.tsx">
+    <testCase name="Toast - should create a warnig toast successfully" duration="532" />
+    <testCase name="Toast - should create a success toast successfully" duration="194" />
+    <testCase name="Toast - should create a error toast successfully" duration="224" />
   </file>
 </testExecutions>

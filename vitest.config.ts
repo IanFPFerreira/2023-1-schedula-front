@@ -9,6 +9,6 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/config/tests/setup-tests.ts',
     reporters: 'vitest-sonar-reporter',
-    outputFile: 'coverage.xml',
+    outputFile: 'sonar-report.xml',
   },
 });

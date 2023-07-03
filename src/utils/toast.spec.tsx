@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react';
 import { ChakraProvider, createStandaloneToast } from '@chakra-ui/react';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { toast } from '@/utils/toast';
 import { Login } from '@/pages/login';
 
@@ -12,12 +11,10 @@ describe('Toast', () => {
     expect(response).toBeDefined();
 
     const { findAllByText } = render(
-      <Router>
-        <ChakraProvider>
-          <ToastContainer />
-          <Login />
-        </ChakraProvider>
-      </Router>
+      <ChakraProvider>
+        <ToastContainer />
+        <Login />
+      </ChakraProvider>
     );
 
     const toastMessage = await findAllByText('mensagem de alerta');
@@ -32,12 +29,10 @@ describe('Toast', () => {
     expect(response).toBeDefined();
 
     const { findAllByText } = render(
-      <Router>
-        <ChakraProvider>
-          <ToastContainer />
-          <Login />
-        </ChakraProvider>
-      </Router>
+      <ChakraProvider>
+        <ToastContainer />
+        <Login />
+      </ChakraProvider>
     );
 
     const toastMessage = await findAllByText('mensagem de sucesso');
@@ -51,12 +46,10 @@ describe('Toast', () => {
     expect(response).toBeDefined();
 
     const { findAllByText } = render(
-      <Router>
-        <ChakraProvider>
-          <ToastContainer />
-          <Login />
-        </ChakraProvider>
-      </Router>
+      <ChakraProvider>
+        <ToastContainer />
+        <Login />
+      </ChakraProvider>
     );
 
     const toastMessage = await findAllByText('mensagem de erro');

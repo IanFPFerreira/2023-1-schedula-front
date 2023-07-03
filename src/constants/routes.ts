@@ -1,4 +1,4 @@
-import { IconType } from 'react-icons';
+import { IconType, icons } from 'react-icons';
 import { BsSignpost2, BsTags, BsTelephonePlus } from 'react-icons/bs';
 import { FaUsersCog } from 'react-icons/fa';
 import { FiMapPin } from 'react-icons/fi';
@@ -16,7 +16,7 @@ export interface IRoute {
 
 export const routes: IRoute[] = [
   {
-    label: 'Atendimentos',
+    label: 'Chamados',
     pathname: '/chamados',
     icon: MdOutlineViewAgenda,
     allowedUsersPath: ['ADMIN', 'BASIC', 'USER'],
@@ -34,7 +34,7 @@ export const routes: IRoute[] = [
     allowedUsersPath: ['ADMIN', 'BASIC', 'USER'],
   },
   {
-    label: 'Registrar Atendimento',
+    label: 'Registrar Chamado',
     pathname: '/chamados/registrar',
     icon: BsTelephonePlus,
     allowedUsersPath: ['ADMIN', 'BASIC'],
