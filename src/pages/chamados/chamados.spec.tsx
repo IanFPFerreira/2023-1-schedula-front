@@ -2,8 +2,7 @@ import { render } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { vi } from 'vitest';
 import { BrowserRouter } from 'react-router-dom';
-import { Chamados, sortIssues } from '@/pages/chamados';
-import { Issue } from '@/features/issues/types';
+import { Chamados } from '@/pages/chamados';
 
 import 'intersection-observer';
 
@@ -36,7 +35,7 @@ describe('Issues page', () => {
     );
 
     const heading = await findByRole('heading');
-    expect(heading).toHaveTextContent('Atendimentos');
+    expect(heading).toHaveTextContent('Chamados');
   });
 
   it('should display a list', async () => {
@@ -61,7 +60,7 @@ describe('Issues page', () => {
       </BrowserRouter>
     );
 
-    const button = await queryByText('Novo Atendimento');
+    const button = await queryByText('Novo Chamado');
     if (button) {
       expect(button).toBeInTheDocument();
     }
@@ -79,128 +78,4 @@ describe('Issues page', () => {
     const button = await findByRole('button', { name: 'Atualizar Dados' });
     expect(button).toBeInTheDocument();
   });
-});
-
-describe('sortIssues', () => {
-  it('should return an empty array when issues is undefined', () => {
-    const issues: Issue[] | undefined = undefined;
-
-    const sortedIssues = sortIssues(issues);
-
-    expect(sortedIssues).toEqual([]);
-  });
-
-  it('should return an empty array when issues is an empty array', () => {
-    const issues: Issue[] = [];
-
-    const sortedIssues = sortIssues(issues);
-
-    expect(sortedIssues).toEqual([]);
-  });
-
-  // it('should sort issues in descending order based on the date property', () => {
-  //   const issues: Issue[] = [
-  //     {
-  //       id: '1',
-  //       requester: 'Mockerson',
-  //       phone: '61988554474',
-  //       city_id: '123',
-  //       workstation_id: '123',
-  //       email: 'mockerson@mock.com',
-  //       date: new Date(),
-  //       problem_category: {
-  //         id: '123',
-  //         name: 'mockCategory',
-  //         description: 'mockDesc',
-  //         problem_types: [],
-  //       },
-  //       problem_types: [],
-  //     },
-  //     {
-  //       id: '2',
-  //       requester: 'Mockerson',
-  //       phone: '61988554474',
-  //       city_id: '123',
-  //       workstation_id: '123',
-  //       email: 'mockerson@mock.com',
-  //       date: new Date(),
-  //       problem_category: {
-  //         id: '123',
-  //         name: 'mockCategory',
-  //         description: 'mockDesc',
-  //         problem_types: [],
-  //       },
-  //       problem_types: [],
-  //     },
-  //     {
-  //       id: '3',
-  //       requester: 'Mockerson',
-  //       phone: '61988554474',
-  //       city_id: '123',
-  //       workstation_id: '123',
-  //       email: 'mockerson@mock.com',
-  //       date: new Date(),
-  //       problem_category: {
-  //         id: '123',
-  //         name: 'mockCategory',
-  //         description: 'mockDesc',
-  //         problem_types: [],
-  //       },
-  //       problem_types: [],
-  //     },
-  //   ];
-
-  //   const sortedIssues = sortIssues(issues);
-
-  //   expect(sortedIssues).toEqual([
-  //     {
-  //       id: '3',
-  //       requester: 'Mockerson',
-  //       phone: '61988554474',
-  //       city_id: '123',
-  //       workstation_id: '123',
-  //       email: 'mockerson@mock.com',
-  //       date: '2023-06-16T15:30:45.500Z',
-  //       problem_category: {
-  //         id: '123',
-  //         name: 'mockCategory',
-  //         description: 'mockDesc',
-  //         problem_types: [],
-  //       },
-  //       problem_types: [],
-  //     },
-  //     {
-  //       id: '1',
-  //       requester: 'Mockerson',
-  //       phone: '61988554474',
-  //       city_id: '123',
-  //       workstation_id: '123',
-  //       email: 'mockerson@mock.com',
-  //       date: '2023-06-15T15:30:45.500Z',
-  //       problem_category: {
-  //         id: '123',
-  //         name: 'mockCategory',
-  //         description: 'mockDesc',
-  //         problem_types: [],
-  //       },
-  //       problem_types: [],
-  //     },
-  //     {
-  //       id: '2',
-  //       requester: 'Mockerson',
-  //       phone: '61988554474',
-  //       city_id: '123',
-  //       workstation_id: '123',
-  //       email: 'mockerson@mock.com',
-  //       date: '2023-06-14T15:30:45.500Z',
-  //       problem_category: {
-  //         id: '123',
-  //         name: 'mockCategory',
-  //         description: 'mockDesc',
-  //         problem_types: [],
-  //       },
-  //       problem_types: [],
-  //     },
-  //   ]);
-  // });
 });

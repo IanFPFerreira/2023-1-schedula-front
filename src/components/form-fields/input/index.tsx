@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactElement } from 'react';
 import { FieldError } from 'react-hook-form';
 import {
@@ -15,7 +14,7 @@ import {
 
 export interface InputProps extends ChakraInputProps {
   label: string | JSX.Element;
-  errors?: FieldError | undefined | any;
+  errors: FieldError | undefined;
   rightElement?: ReactElement<InputElementProps>;
   leftElement?: ReactElement<InputElementProps>;
   rightAddon?: ReactElement<InputAddonProps>;

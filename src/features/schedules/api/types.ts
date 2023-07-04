@@ -1,6 +1,6 @@
-import { Schedule, ScheduleOpen } from '@/features/schedules/types';
+import { Schedule } from '@/features/schedules/types';
 
-export type GetAllSchedulesResponse = Array<Schedule | ScheduleOpen>;
+export type GetAllSchedulesResponse = Array<Schedule>;
 
 export interface DeleteScheduleParams {
   id: string;

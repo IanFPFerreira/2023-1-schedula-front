@@ -1,12 +1,12 @@
 import { Checkbox, Td, Tr } from '@chakra-ui/react';
 import { Dispatch, SetStateAction, useCallback, useMemo } from 'react';
-import { Schedule, ScheduleOpen } from '@/features/schedules/types';
+import { Schedule } from '@/features/schedules/types';
 import { formatDate } from '@/utils/format-date';
 
 interface ScheduleTableItemProps {
-  schedule: Schedule | ScheduleOpen;
-  selectedSchedules: (Schedule | ScheduleOpen)[];
-  setSelectedSchedules: Dispatch<SetStateAction<(Schedule | ScheduleOpen)[]>>;
+  schedule: Schedule;
+  selectedSchedules: Schedule[];
+  setSelectedSchedules: Dispatch<SetStateAction<Schedule[]>>;
 }
 
 export function ScheduleTableItem({

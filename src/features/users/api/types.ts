@@ -5,7 +5,6 @@ export interface User {
   username: string;
   position: string;
   profile: 'ADMIN' | 'BASIC' | 'USER';
-  cpf: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -24,7 +23,6 @@ export interface PostCreateUserParams {
   position: string;
   profile: string;
   password: string;
-  cpf: string;
 }
 
 export interface PostCreateUserResponse {
@@ -34,7 +32,6 @@ export interface PostCreateUserResponse {
     username: string;
     position: string;
     profile: string;
-    cpf: string;
     confirmationToken: string;
     id: string;
     createdAt: string;
@@ -52,7 +49,6 @@ export interface PutUpdateUserParams {
     position: string;
     profile: string;
     password: string;
-    cpf: string;
   };
 }
 
@@ -63,7 +59,6 @@ export interface PutUpdateUserResponse {
   username: string;
   position: string;
   profile: string;
-  cpf: string;
   createdAt: string;
   updatedAt: string;
 }

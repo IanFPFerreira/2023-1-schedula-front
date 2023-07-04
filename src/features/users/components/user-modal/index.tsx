@@ -32,7 +32,6 @@ export function UserModal({ onClose, user, ...props }: UserModalProps) {
       profile,
       username,
       password,
-      cpf,
     }: UserFormValues) => {
       const payload: PostCreateUserParams = {
         name,
@@ -40,7 +39,6 @@ export function UserModal({ onClose, user, ...props }: UserModalProps) {
         email,
         position,
         profile: profile?.value,
-        cpf,
         password,
       };
 

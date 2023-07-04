@@ -3,7 +3,6 @@ export interface Workstation {
   name: string;
   city: City;
   phone: string;
-  vpn: boolean;
   ip: string;
   is_regional: boolean;
   gateway: string;
@@ -15,7 +14,6 @@ export interface PostCreateWorkstationParams {
   name: string;
   city_id: string;
   phone: string;
-  vpn: boolean;
   ip: string;
   gateway: string;
   is_regional: boolean;
@@ -28,7 +26,6 @@ export interface PostCreateWorkstationResponse {
   name: string;
   city: City;
   phone: string;
-  vpn: boolean;
   ip: string;
   gateway: string;
   is_regional: boolean;
@@ -42,7 +39,6 @@ export interface PutUpdateWorkstationParams {
     name: string;
     city_id: string;
     phone: string;
-    vpn: boolean;
     ip: string;
     gateway: string;
     is_regional: boolean;
@@ -56,7 +52,6 @@ export interface PutUpdateWorkstationResponse {
   name: string;
   city: City;
   phone: string;
-  vpn: boolean;
   ip: string;
   gateway: string;
   is_regional: boolean;

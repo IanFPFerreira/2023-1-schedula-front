@@ -1,7 +1,6 @@
 export interface ProblemType {
   id: string;
   name: string;
-  visible_user_external: boolean;
   description: string;
   category_id: number;
   active: boolean;
@@ -10,5 +9,4 @@ export interface ProblemType {
 
 export interface ProblemTypePayload {
   name: string;
-  visible_user_external: boolean;
 }

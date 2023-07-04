@@ -11,18 +11,13 @@ import { formatDate } from '@/utils/format-date';
 import { Issue } from '@/features/issues/types';
 import { Item } from '@/components/list-item';
 import { useGetAllCities } from '@/features/cities/api/get-all-cities';
-import { DeleteButton } from '@/components/action-buttons/delete-button';
-import { ItemActions } from '@/components/list-item/list-item-actions';
-import { Permission } from '@/components/permission';
 
 interface IssueItemProps {
   issue: Issue;
-  onDelete: (issueId: string) => void;
-  isDeleting: boolean;
 }
 
-export function IssueItem({ issue, onDelete, isDeleting }: IssueItemProps) {
-  const { data: cities } = useGetAllCities(0);
+export function IssueItem({ issue }: IssueItemProps) {
+  const { data: cities } = useGetAllCities();
   const city = cities?.find((city) => {
     return city?.id === issue?.city_id;
   });
@@ -98,23 +93,6 @@ export function IssueItem({ issue, onDelete, isDeleting }: IssueItemProps) {
                 Atendente
               </Text>
               <Text noOfLines={1}>{issue?.email}</Text>
-              <Permission allowedRoles={['ADMIN']}>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                    textAlign: 'left',
-                  }}
-                >
-                  <ItemActions item={city}>
-                    <DeleteButton
-                      onClick={() => onDelete(issue.id)}
-                      label="atendimento"
-                      isLoading={isDeleting}
-                    />
-                  </ItemActions>
-                </div>
-              </Permission>
             </Box>
           </HStack>
         </VStack>

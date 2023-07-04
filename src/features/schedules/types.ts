@@ -1,8 +1,8 @@
-import { ExternIssue, Issue, IssueOpen } from '@/features/issues/types';
+import { Issue } from '@/features/issues/types';
 
 interface Alert {
   id: string;
-  date: Date;
+  date: string;
 }
 
 export enum ScheduleStatus {
@@ -20,13 +20,4 @@ export interface Schedule {
   status: ScheduleStatus;
   alerts: Array<Alert>;
   issue: Issue;
-}
-
-export interface ScheduleOpen {
-  id: string;
-  dateTime: string;
-  description: string;
-  status: ScheduleStatus;
-  alerts: Array<Alert>;
-  issue: ExternIssue;
 }

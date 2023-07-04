@@ -18,7 +18,7 @@ describe('Cities Page', () => {
   let cities: GetAllCitiesResponse;
 
   beforeAll(async () => {
-    cities = await getAllCities(0);
+    cities = await getAllCities();
   });
 
   it('should have a button to register a new city', async () => {

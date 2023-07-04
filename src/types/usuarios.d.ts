@@ -28,7 +28,6 @@ interface RegisterUserPayload {
   position: string;
   profile: Access;
   password: string;
-  cpf: string;
   confirmPassword: string;
 }
 

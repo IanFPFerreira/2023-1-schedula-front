@@ -34,18 +34,16 @@ export function ScheduleEditModal({
           ]
         : 'PROGRESS';
 
-      const data = {
+      editSchedule({
         id: schedule?.id ?? '',
         data: {
           issue_id: schedule?.issue.id ?? '',
           description: values.description ?? description,
           status_e: values.status_e.value ?? defaultStatus,
-          dateTime: values.event_date ?? dateTime,
+          dateTime: values.date_time ?? dateTime,
           alerts,
         },
-      };
-
-      editSchedule(data);
+      });
     },
     [editSchedule, schedule]
   );

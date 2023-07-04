@@ -59,19 +59,14 @@ export function UserForm({
           placeholder="Username"
         />
 
-        <Input
-          label="Email"
-          {...register('email')}
-          errors={errors?.email}
-          placeholder="exemplo@email.com"
-        />
-
-        <Input
-          label="CPF"
-          {...register('cpf')}
-          errors={errors?.cpf}
-          placeholder="000.000.000-00"
-        />
+        <GridItem colSpan={2}>
+          <Input
+            label="Email"
+            {...register('email')}
+            errors={errors?.email}
+            placeholder="exemplo@email.com"
+          />
+        </GridItem>
 
         <Input
           label="Senha"
