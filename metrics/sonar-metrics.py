@@ -29,6 +29,8 @@ def generate_metrics():
     if 'id' in repository_version:
         date = datetime.strptime(repository_version[3:].split("_")[1], '%Y-%m-%dT%H:%M:%SZ')  # noqa 501
         repository_version = repository_version[3:].split("_")[0]
+    else:
+        date = datetime.now()
 
     underlined_repo_name = repository_name[:16] + \
         repository_name[16:].replace('-', "_")
