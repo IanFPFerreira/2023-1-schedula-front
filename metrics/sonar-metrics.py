@@ -26,28 +26,23 @@ def generate_metrics():
     repository_name = sys.argv[1]
     repository_version = sys.argv[2]
 
-    date = '2023-05-08T19:19:46Z'
-    # parsed_date = datetime.strptime(date, '%Y-%m-%dT%H:%M')
+    if 'id' in repository_version:
+        date = datetime.strptime(repository_version[3:].split("_")[1], '%Y-%m-%dT%H:%M')  # noqa 501
+        repository_version = repository_version[3:].split("_")[0]
+    else:
+        date = datetime.now()
 
-    print(date[:16])
+    underlined_repo_name = repository_name[:16] + \
+        repository_name[16:].replace('-', "_")
+    url = f'{base_url}{repository_name}&metricKeys={",".join(metrics)}'
+    with urllib.request.urlopen(url) as res:
+        data = json.load(res)
+        date_padrao_hilmer = f"{date.month:02d}-{date.day:02d}-{date.year}-{date.hour}-{date.minute}-{date.second}"  # noqa 501
 
-    # if 'id' in repository_version:
-    #     date = datetime.strptime(repository_version[3:].split("_")[1], '%Y-%m-%dT%H:%M:%SZ')  # noqa 501
-    #     repository_version = repository_version[3:].split("_")[0]
-    # else:
-    #     date = datetime.now()
-
-    # underlined_repo_name = repository_name[:16] + \
-    #     repository_name[16:].replace('-', "_")
-    # url = f'{base_url}{repository_name}&metricKeys={",".join(metrics)}'
-    # with urllib.request.urlopen(url) as res:
-    #     data = json.load(res)
-    #     date_padrao_hilmer = f"{date.month:02d}-{date.day:02d}-{date.year}-{date.hour}-{date.minute}-{date.second}"  # noqa 501
-
-    #     filename = f"{prefix}-{underlined_repo_name}-{date_padrao_hilmer}-{repository_version}.json"  # noqa 501
-    #     print(filename)
-    #     with open(filename, "w") as file:
-    #         json.dump(data, file)
+        filename = f"{prefix}-{underlined_repo_name}-{date_padrao_hilmer}-{repository_version}.json"  # noqa 501
+        print(filename)
+        with open(filename, "w") as file:
+            json.dump(data, file)
 
 
 if __name__ == "__main__":
