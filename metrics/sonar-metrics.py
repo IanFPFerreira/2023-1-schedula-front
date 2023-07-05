@@ -1,12 +1,11 @@
 import json
 import sys
-import requests
 import urllib.request
 from datetime import datetime
 
 
 def generate_metrics():
-    base_url = "https://sonarcloud.io/api/measures/component_tree?component=IanFPFerreira_"  # noqa 501
+    base_url = "https://sonarcloud.io/api/measures/component_tree?component=fga-eps-mds_"  # noqa 501
     prefix = "fga-eps-mds"
     metrics = [
         "files",
@@ -26,29 +25,22 @@ def generate_metrics():
     # NAO RELE A MÃO NISSO AQUI
     repository_name = sys.argv[1]
     repository_version = sys.argv[2]
+
+    if 'id' in repository_version:
+        date = datetime.strptime(repository_version[3:].split("_")[1], '%Y-%m-%dT%H:%M:%SZ')  # noqa 501
+        repository_version = repository_version[3:].split("_")[0]
+
     underlined_repo_name = repository_name[:16] + \
         repository_name[16:].replace('-', "_")
-    url = requests.get(f'{base_url}{repository_name}&metricKeys={",".join(metrics)}&ps=500')
-    j = json.loads(url.text)
+    url = f'{base_url}{repository_name}&metricKeys={",".join(metrics)}'
+    with urllib.request.urlopen(url) as res:
+        data = json.load(res)
+        date_padrao_hilmer = f"{date.month:02d}-{date.day:02d}-{date.year}-{date.hour}-{date.minute}-{date.second}"  # noqa 501
 
-    date = datetime.now()
-    date_padrao_hilmer = f"{date.month}-{date.day}-{date.year}-{date.hour}-{date.minute}-{date.second}"  # noqa 501
-
-    filename = f"{prefix}-{underlined_repo_name}-{date_padrao_hilmer}-{repository_version}.json"  # noqa 501
-
-    # with open(filename, "w") as file:
-    #         json.dump(data, file)
-
-    with open(filename, 'w') as fp:
-        fp.write(json.dumps(j))
-        fp.close()
-
-    # with urllib.request.urlopen(url) as res:
-    #     data = json.load(res)
-    #     print(data)
-    #     print(filename)
-    #     with open(filename, "w") as file:
-    #         json.dump(data, file)
+        filename = f"{prefix}-{underlined_repo_name}-{date_padrao_hilmer}-{repository_version}.json"  # noqa 501
+        print(filename)
+        with open(filename, "w") as file:
+            json.dump(data, file)
 
 
 if __name__ == "__main__":
