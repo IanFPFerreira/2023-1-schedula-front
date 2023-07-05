@@ -26,14 +26,16 @@ def generate_metrics():
     repository_name = sys.argv[1]
     repository_version = sys.argv[2]
 
-    date = '2023-05-08T19:19'
-    parsed_date = datetime.strptime(date, '%Y-%m-%dT%H:%M')
+    date = '2023-05-08T19:19:46Z'
+    # parsed_date = datetime.strptime(date, '%Y-%m-%dT%H:%M')
 
-    if 'id' in repository_version:
-        date = datetime.strptime(repository_version[3:].split("_")[1], '%Y-%m-%dT%H:%M:%SZ')  # noqa 501
-        repository_version = repository_version[3:].split("_")[0]
-    else:
-        date = datetime.now()
+    print(date[:16])
+
+    # if 'id' in repository_version:
+    #     date = datetime.strptime(repository_version[3:].split("_")[1], '%Y-%m-%dT%H:%M:%SZ')  # noqa 501
+    #     repository_version = repository_version[3:].split("_")[0]
+    # else:
+    #     date = datetime.now()
 
     # underlined_repo_name = repository_name[:16] + \
     #     repository_name[16:].replace('-', "_")
