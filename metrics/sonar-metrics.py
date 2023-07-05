@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 def generate_metrics():
-    base_url = "https://sonarcloud.io/api/measures/component_tree?component=fga-eps-mds_"  # noqa 501
+    base_url = "https://sonarcloud.io/api/measures/component_tree?component=IanFPFerreira_"  # noqa 501
     prefix = "fga-eps-mds"
     metrics = [
         "files",
