@@ -1,5 +1,0 @@
-export const PROBLEM_CATEGORIES_ENDPOINT =
-  import.meta.env.VITE_PUBLIC_DETALHADOR_CHAMADOS_URL ?? '';
-
-export const PROBLEM_TYPES_ENDPOINT =
-  import.meta.env.VITE_PUBLIC_DETALHADOR_CHAMADOS_URL ?? '';

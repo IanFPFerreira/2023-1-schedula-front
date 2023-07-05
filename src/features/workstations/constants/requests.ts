@@ -1,2 +1,0 @@
-export const WORKSTATIONS_ENDPOINT =
-  import.meta.env.VITE_PUBLIC_GERENCIADOR_DE_LOCALIDADES_URL ?? '';
