@@ -61,7 +61,7 @@ export function CreateIssueForm() {
       },
     });
 
-  const { data: cities, isLoading: isLoadingCities } = useGetAllCities();
+  const { data: cities, isLoading: isLoadingCities } = useGetAllCities(0);
 
   const { data: problem_categories, isLoading: isLoadingProblems } =
     useGetAllProblemCategories();
@@ -133,7 +133,7 @@ export function CreateIssueForm() {
         requester,
         phone,
         city_id: city_payload?.value,
-        date: new Date().toISOString(),
+        date: new Date(),
         problem_category_id: problem_category_payload?.value,
         problem_types_ids:
           problem_types_payload?.map((type) => type?.value) ?? [],
@@ -246,7 +246,7 @@ export function CreateIssueForm() {
           <GridItem colSpan={2} display="flex" justifyContent="space-between">
             <Text color="gray" fontWeight="light" fontSize="12px">
               Atenção: Caso seja necessário, você poderá gerar um agendamento
-              após registrar o chamado
+              após registrar o atendimento
             </Text>
             <Button disabled={!createdIssue} onClick={onOpen}>
               Gerar Agendamento
@@ -284,7 +284,7 @@ export function CreateIssueForm() {
             color: '#F49320',
           })}
         >
-          {!createdIssue ? 'Registrar Chamado' : 'Ir para os chamados'}
+          {!createdIssue ? 'Registrar Atendimento' : 'Ir para os atendimentos'}
         </Button>
       </form>
 
