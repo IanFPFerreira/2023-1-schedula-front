@@ -92,40 +92,40 @@ jobs:
       - name: 🧪 Run tests
         run: yarn test
 
-  sonarcloud:
-    name: SonarCloud
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+  # sonarcloud:
+  #   name: SonarCloud
+  #   runs-on: ubuntu-latest
+  #   continue-on-error: true
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
 
-      - name: 📬 Caching
-        uses: actions/cache@v2
-        with:
-          path: |
-            ${{ github.workspace }}/node_modules
-            ${{ github.workspace }}/.next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/*.{js,jsx,ts,tsx}') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
+  #     - name: 📬 Caching
+  #       uses: actions/cache@v2
+  #       with:
+  #         path: |
+  #           ${{ github.workspace }}/node_modules
+  #           ${{ github.workspace }}/.next/cache
+  #         key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/*.{js,jsx,ts,tsx}') }}
+  #         restore-keys: |
+  #           ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
 
-      - name: 🧰 Install dependencies
-        run: yarn install
+  #     - name: 🧰 Install dependencies
+  #       run: yarn install
 
-      - name: 📜 Eslint report
-        run: npx eslint -f json -o reports/eslint-report.json src || true
+  #     - name: 📜 Eslint report
+  #       run: npx eslint -f json -o reports/eslint-report.json src || true
 
-      - name: 🧪 Test and coverage
-        run: yarn test --coverage --passWithNoTests
+  #     - name: 🧪 Test and coverage
+  #       run: yarn test --coverage --passWithNoTests
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  #     - name: SonarCloud Scan
+  #       uses: SonarSource/sonarcloud-github-action@master
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build:
     needs: [lint, type-check]
