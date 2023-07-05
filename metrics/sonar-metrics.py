@@ -27,7 +27,7 @@ def generate_metrics():
     repository_version = sys.argv[2]
 
     if 'id' in repository_version:
-        date = datetime.strptime(repository_version[3:].split("_")[1], '%Y-%m-%dT%H:%M')  # noqa 501
+        date = datetime.strptime(repository_version[3:].split("_")[1].replace("a", "-").replace("p", ":"), '%Y-%m-%dT%H:%M:%SZ')  # noqa 501
         repository_version = repository_version[3:].split("_")[0]
     else:
         date = datetime.now()
