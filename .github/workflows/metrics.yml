@@ -2,7 +2,7 @@ name: Generate Metrics Release
 
 on:
   push:
-    branches: [main, develop, id/*]
+    branches: [main, develop, id-*]
     tags:
       - "v*"
 
