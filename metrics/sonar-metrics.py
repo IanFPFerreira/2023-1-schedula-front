@@ -34,7 +34,7 @@ def generate_metrics():
 
     underlined_repo_name = repository_name[:16] + \
         repository_name[16:].replace('-', "_")
-    url = f'{base_url}{repository_name}&metricKeys={",".join(metrics)}'
+    url = f'{base_url}{repository_name}&metricKeys={",".join(metrics)}&ps=500'
     with urllib.request.urlopen(url) as res:
         data = json.load(res)
         date_padrao_hilmer = f"{date.month:02d}-{date.day:02d}-{date.year}-{date.hour}-{date.minute}-{date.second}"  # noqa 501
