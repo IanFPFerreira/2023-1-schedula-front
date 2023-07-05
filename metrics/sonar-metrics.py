@@ -38,7 +38,7 @@ def generate_metrics():
     url = f'{base_url}{repository_name}&metricKeys={",".join(metrics)}&ps=500&branch={repository_version}'  # noqa 501
     with urllib.request.urlopen(url) as res:
         data = json.load(res)
-        date_padrao_hilmer = f"{date.month:02d}-{date.day:02d}-{date.year}-{date.hour}-{date.minute}-{date.second}"  # noqa 501
+        date_padrao_hilmer = f"{date.month:02d}-{date.day:02d}-{date.year}-{date.hour:02d}-{date.minute:02d}-{date.second:02d}"  # noqa 501
 
         filename = f"{prefix}-{underlined_repo_name}-{date_padrao_hilmer}-{branch_target}.json"  # noqa 501
         print(filename)
